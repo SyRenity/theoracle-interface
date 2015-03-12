@@ -1,0 +1,18 @@
+extends layout
+block content
+	p Description will be here
+
+	form(name="conf", action="", method="POST")
+		block script-def
+		
+		.form-group
+			label(for="alice") User A public Key
+			input.form-control.input-lg(type="text", name="alice", required)
+	
+		.form-group
+			label(for="bob") User B Public Key
+			input.form-control.input-lg(type="text", name="bob", required)
+			
+		
+		input.btn.btn-primary(type="submit", value="Get Multisig address")
+

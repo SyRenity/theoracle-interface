@@ -8,7 +8,7 @@ doctype
 html
 	head
 		+css("public/lib/bootstrap/bootstrap.min.css")
-		+css("public/css/index.css")
+		+css("public/css/style.css")
 		+script("https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
 		+script("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
 
@@ -24,18 +24,19 @@ html
 			.container
 				block content
 
-			div.modal.fade(id="myModal")
+			div.modal.fade.tx-info(id="myModal")
 				div.modal-dialog
 					div.modal-content
 						div.modal-header
 							button.close(data-dismiss="modal", aria-label="Close")
 							h4.modal-title Transaction Info
 						div.modal-body
-							label Multisig address
-							span.multisig
+							p Multisig address
+							
+							div.multisig.well gdakkldagt3/!U(
 							p Use this url to run the script provided.... balblaba
-							span.validation-url
+							div.validation-url.well http://www.google.com/
 						div.modal-footer
-							button.btn.btn-primary Ok, get it
+							button.btn.btn-primary Ok, got it
 			button.btn-primary(data-toggle="modal", data-target="#myModal") Test Dialog
 		footer
