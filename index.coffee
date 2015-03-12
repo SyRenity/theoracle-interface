@@ -10,7 +10,7 @@ app.get '/', (req, res, next) ->
   res.render 'mainform'
 
 app.post '/', (req, res, next) ->
-	
+		
 app.get '/tx/:txid', (req, res, next) ->
 	req.params.txid
 

@@ -5,19 +5,16 @@ block content
 	form(name="conf", action="", method="POST")
 		.form-group
 			label(for="script")  Script
-			textarea.form-control(cols="20", name="script")
+			textarea.form-control(rows="15", name="script" required)
 		
 		.form-group
-			label(for="userakey") User A public Key
-			input.form-control.input-lg(type="text", name="userakey")
+			label(for="alice") User A public Key
+			input.form-control.input-lg(type="text", name="alice", required)
 	
 		.form-group
-			label(for="userbkey") User B Public Key
-			input.form-control.input-lg(type="text", name="userbkey")
+			label(for="bob") User B Public Key
+			input.form-control.input-lg(type="text", name="bob", required)
 			
-		.form-group
-			label(for="oraclemaster") Oracle master key
-			input.form-control.input-lg(type="text", name="oraclemaster")
 		
 		input.btn.btn-primary(type="submit", value="Get Multisig address")
 
