@@ -18,10 +18,11 @@ app.post '/', (req, res, next) ->
 app.get '/tx/:txid', (req, res, next) ->
 	req.params.txid
 
-app.get '/tweets', (req, res, next) ->
-	t = require	"./contracts/followers.coffee"
-	t()
-	console.log t
+app.get '/followers', (req, res, next) ->
+	res.render 'followersform'
+#	t = require	"./contracts/followers.coffee"
+#	t()
+#	console.log t
 
 server = app.listen 3000,->
 	console.log "Server started"
