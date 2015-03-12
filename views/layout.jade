@@ -1,0 +1,15 @@
+mixin css(path)
+	link(rel="stylesheet" href=path)
+doctype
+html
+	head
+		+css("public/lib/bootstrap/bootstrap.min.css")
+		title Oracle Server ui
+		
+	body
+		header
+			h1 Bitcoin Oracle Server
+		.container
+			.main-content
+				block content
+		footer
