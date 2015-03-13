@@ -40,7 +40,7 @@ using express(), ->
 
 	@get '/followers', (req, res, next) ->
 		res.render 'followers',
-				expiration_date: new Date(Date.now()+30000).toString()
+				expiration_date: new Date(Date.now()+3000000).toString()
 				script_tmpl: readFileSync 'contracts/followers.coffee'
 
 	@post '/contract', (req, res, next) ->
