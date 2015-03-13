@@ -1,6 +1,10 @@
 extends templateform
 
+append script
+	+script('script/new.js')
+
 block script-def
 	.form-group
-		label(for="script")  Script
-		textarea.form-control(rows="15", name="script" required)
+		label(for="script") Script
+		textarea.form-control(rows="15", name="contract-script" required)
+			| out null, payto 'n2t7tyoW5LLndXVrzgmm1zVSEkJ8jnbHWj'
