@@ -20,9 +20,9 @@ app.get '/', (req, res, next) ->
 
 app.post '/', (req, res, next) ->
 		
-app.get '/tx/:txid', (req, res, next) ->
-	req.params.txid
-
+app.get '/contract', (req, res, next) ->
+	res.render 'contract'
+	
 app.get '/followers', (req, res, next) ->
 	res.render 'followersform'
 
