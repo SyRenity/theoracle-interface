@@ -29,7 +29,10 @@
     "iferr": "~0.1.5",
     "coffeeify": "~1.0.0",
     "btc-script": "^0.1.12",
-    "bigi": "^1.4.0"
+    "bigi": "^1.4.0",
+    "ecurve": "~1.0.1",
+    "ecdsa": "~0.6.0",
+    "btc-opcode": "0.0.1"
   },
   "browserify": {
     "transform": [
