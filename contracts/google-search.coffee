@@ -1,7 +1,7 @@
 google = require 'google'
 google.lang = 'en'
 google.tld ='com'
-google.resultPerPage = 10
+google.resultPerPage = { rank }
 if {time} > Date.now()
 	return out null, "Contract not expired yet"
 google {keyword}, (err,next,links) ->
