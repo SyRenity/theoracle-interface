@@ -12,4 +12,4 @@ client.get 'users/show', params, iferr out, (user, res) ->
 	if user.followers_count > {desired_followers}
 		out null, payto {company_address}
 	else
-		out nul, payto {customer_address}	
+		out null, payto {customer_address}	

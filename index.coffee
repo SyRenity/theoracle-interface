@@ -1,5 +1,6 @@
 express = require 'express'
 stylus = require 'stylus'
+request = require 'superagent'
 
 app = express()
 
@@ -22,8 +23,12 @@ app.get '/followers', (req, res, next) ->
 	res.render 'followersform'
 
 app.get '/bitcoin_binary', (req, res, next) ->
-	res.render 'bitcoinbinaryform'
+	expiration_date = new Date(Date.now()+30000).toString()
 
+	request.get 'https://api.bitcoinaverage.com/all', (err, resp) ->
+		res.render 'bitcoinbinaryform', 
+		  {current_value: resp.body.USD.averages.last, expiration_date: expiration_date}
+	
 server = app.listen 3000,->
 	console.log "Server started"
 
