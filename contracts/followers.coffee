@@ -9,9 +9,10 @@ client = new Twitter
 
 params = screen_name: {twitter_user}
 client.get 'users/show', params, iferr out, (user, res) ->
+	console.log user
 	if user.followers_count >= {needed_followers}
 		out null, payto {company_address}
-	else if {expiration_date} < Date.now()
+	else if {expiration_date} > Date.now()
 		out null, 'Not enough followers, only ' + user.followers_count
 	else
 		out null, payto {customer_address}
