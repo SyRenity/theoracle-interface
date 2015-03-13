@@ -9,7 +9,7 @@ block script-def
 		.col-md-6
 			.form-group
 				label(for="current_value")  The current bitcoin value
-				input.form-control.input-lg(name="current_value", value=current_value, required)
+				input.form-control.input-lg(name="current_value", readonly, value=current_value, required)
 		.col-md-6
 			.form-group		
 				label(for="expiration_date") Expiration date
@@ -19,8 +19,8 @@ block script-def
 		.col-md-6
 			.form-group
 				label(for="put_address") The PUT trader bitcoin address
-				input.form-control.input-lg(name="put_trader_address", required)
+				input.form-control.input-lg(placeholder="9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="put_trader_address", required)
 		.col-md-6
 			.form-group
 				label(for="call_address") The CALL trader bitcoin address
-				input.form-control.input-lg(name="call_trader_address", required)
+				input.form-control.input-lg(placeholder="9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="call_trader_address", required)
