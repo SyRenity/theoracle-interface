@@ -8,14 +8,14 @@ append css
 	+css('public/lib/pnotify/pnotify.custom.min.css')
 
 block content
-	.row
-		.col-md-6.contract
+	.row.contract-spend
+		.col-sm-6.contract
 			h2 Pay to contract
 			h4.multisig-addr
 			h4.text-muted Balance: #[span.balance]
 			.multisig-qr
 						
-		.col-md-6
+		.col-sm-6
 			h2 Run smart contract
 			.form-group
 				textarea(rows=10, readonly).form-control.input-xxlarge.contract-script
