@@ -1,6 +1,6 @@
 extends templateform
 
-block
+block headline
 	h2 Create Followers Contract
 block script-def
 	.form-group
@@ -19,3 +19,6 @@ block script-def
 		label(for="customer_address")  The customer bitcoin address
 		input.form-control.input-lg(name="company_address", required)
 
+	.form-group
+		label(for="expiration_date") Expiration date
+		input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
