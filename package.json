@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Bitcoin Oracle server ui",
   "main": "index.coffee",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
@@ -15,6 +12,20 @@
     "twitter": "~1.2.3",
     "express": "~4.12.2",
     "bitcoinaverage-client": "0.0.5",
-    "superagent": "~1.0.0"
+    "superagent": "~1.0.0",
+    "browserify-middleware": "^5.0.2",
+    "coinstring": "^2.2.0",
+    "crypto-hashing": "^0.3.1",
+    "btc-transaction": "^0.1.8",
+    "qruri": "0.0.3",
+    "jadeify2": "git://github.com/shesek/node-jadeify2#e4f5dc6d9c94db512d17564e8bb5f55d458eb144",
+    "envify": "^3.3.1"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      "jadeify2",
+      "envify"
+    ]
   }
 }

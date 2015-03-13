@@ -1,16 +1,20 @@
 express = require 'express'
 stylus = require 'stylus'
+browserify = require 'browserify-middleware'
 
 app = express()
 
 app.set 'view engine', 'jade'
+
 app.use stylus.middleware
 	src: __dirname + '/public'
 	dest: __dirname + '/public'
 
 app.use '/public', express.static __dirname + '/public'
 
-app.get '/', (req, res, next) ->	
+app.get '/script/new.js', browserify __dirname+'/script/new.coffee', extension: [ '.coffee' ]
+
+app.get '/', (req, res, next) ->
   res.render 'mainform'
 
 app.post '/', (req, res, next) ->
