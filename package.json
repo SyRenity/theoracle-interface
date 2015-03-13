@@ -25,7 +25,8 @@
     "hdkey": "^0.4.0",
     "coininfo": "^0.3.1",
     "browserify": "^9.0.3",
-    "body-parser": "^1.12.0"
+    "body-parser": "^1.12.0",
+    "iferr": "~0.1.5"
   },
   "browserify": {
     "transform": [

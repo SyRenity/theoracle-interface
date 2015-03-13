@@ -2,32 +2,31 @@ extends templateform
 
 block headline
 	h2 Create SEO Contract
-block script-def
-
-
-	.form-group
-		label(for="keyword")  The search keyword
-		input.form-control.input-lg(name="keyword", required)
-	
-	.form-group
-		label(for="url")  Website url
-		input.form-control.input-lg(name="url", required)
-
-	.form-group
-		label(for="option_type") Ranking
-		select.form-control(name="option_type")
-			each val in [1,2,3,4,5,6,7,8,9,10]
-				option(value=val) #{val}
-
-	.form-group
-		label(for="company_address")  The SEO company bitcoin address
-		input.form-control.input-lg(name="company_address", required)
-	
-	.form-group
-		label(for="customer_address")  The customer bitcoin address
-		input.form-control.input-lg(name="company_address", required)
-
-	.form-group
-		label(for="expiration_date") Expiration date
-		input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
-
+prepend script-def
+	.row		
+		.col-md-6
+			.form-group
+				label(for="keyword")  The search keyword
+				input.form-control.input-lg(name="keyword", required)
+		.col-md-6
+			.form-group
+				label(for="option_type") Needed ranking
+				input.form-control.input-lg(name="rank")
+	.row
+		.col-md-6
+			.form-group
+				label(for="url")  Website url
+				input.form-control.input-lg(name="url", required)
+		.col-md-6
+			.form-group
+				label(for="expiration_date") Expiration date
+				input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
+	.row
+		.col-md-6
+			.form-group
+				label(for="company_address")  The SEO company bitcoin address
+				input.form-control.input-lg(name="company_address", required)
+		.col-md-6
+			.form-group
+				label(for="customer_address")  The customer bitcoin address
+				input.form-control.input-lg(name="customer_address", required)
