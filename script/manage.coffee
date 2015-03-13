@@ -31,8 +31,11 @@ $ update_balance
 
 # Run contract
 run = ->
+	#l = Ladda.create $('.run')[0]
+	#l.start()
 	$.ajax url: '/contract', method: 'post', data: { contract_script, alice_pub: alice_pub.toString('hex'), bob_pub: bob_pub.toString('hex') }
 	.done (res) ->
+		#l.stop()
 		switch res.type
 			when 'msg'
 				new PNotify

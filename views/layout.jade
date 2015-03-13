@@ -4,6 +4,9 @@ mixin css(path)
 mixin script(path)
 	script(type="text/javascript" src=path)
 
+block vars
+	- active = null
+
 doctype
 html
 	head
@@ -22,11 +25,11 @@ html
 			nav.navbar.navbar-inverse(role='navigation')
 				.container
 					.navbar-header
-						a.navbar-brand(href='/') Oracle	
+						a.navbar-brand(href='/') TheOracle	
 						ul.nav.navbar-nav.navbar-left
-							li: a(href="/followers") Social Marketing
-							li: a(href="/google") SEO Contract
-							li: a(href="/bitcoin_binary") Binary Option
+							li(class=(active=='twitter'?'active':'')): a(href="/followers") Social Marketing
+							li(class=(active=='seo'?'active':'')): a(href="/google") SEO Contract
+							li(class=(active=='binary'?'active':'')): a(href="/bitcoin_binary") Binary Option
 		.container
 			block content
 
