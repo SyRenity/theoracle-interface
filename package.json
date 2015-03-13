@@ -32,7 +32,8 @@
     "bigi": "^1.4.0",
     "ecurve": "~1.0.1",
     "ecdsa": "~0.6.0",
-    "btc-opcode": "0.0.1"
+    "btc-opcode": "0.0.1",
+    "uglify-js": "^2.4.17"
   },
   "browserify": {
     "transform": [

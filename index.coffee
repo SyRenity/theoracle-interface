@@ -20,8 +20,9 @@ using express(), ->
 
 	@use '/public', express.static __dirname + '/public'
 
-	@get '/script/new.js', browserify __dirname+'/script/new.coffee', extension: [ '.coffee' ]
-	@get '/script/manage.js', browserify __dirname+'/script/manage.coffee', extension: [ '.coffee' ]
+	#@get '/script/new.js', browserify __dirname+'/script/new.coffee', extension: [ '.coffee' ]
+	#@get '/script/manage.js', browserify __dirname+'/script/manage.coffee', extension: [ '.coffee' ]
+	@use '/script', express.static __dirname + '/compiled'
 
 	@get '/', (req, res, next) -> res.render 'mainform'
 	@get '/contract', (req, res, next) -> res.render 'contract'
