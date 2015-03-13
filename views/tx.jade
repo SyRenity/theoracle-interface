@@ -1,0 +1,30 @@
+.modal.fade.tx-dialog: .modal-dialog: .modal-content
+	.modal-header
+		button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+		h4.modal-title Oracle Transaction
+	
+	.modal-body
+		p The Oracle has authorized the following transaction:
+		table.table
+			thead: tr
+				th Pay to
+				th Amount
+			tbody
+				each r in recipients
+					tr
+						td= r.address
+						td #{ r.amount/100000000 } BTC
+			tfoot
+				tr
+					th Transaction fees:
+					td #{ tx_fees/100000000 } BTC
+				tr
+					th Total:
+					td #{ total_in/100000000 } BTC
+
+		p To finalize the transaction, enter your private key:
+		.form-group: input.form-control(name='privkey')
+		button.sign.btn.btn-primary Finalize &amp; Broadcast
+
+	.modal-footer
+		button.btn.btn-default(type='button', data-dismiss='modal') Close

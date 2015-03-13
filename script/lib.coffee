@@ -10,6 +10,7 @@ currency = process.env.CURRENCY
 
 make_multisig = (contract_script, alice_pub, bob_pub) ->
 	oracle_pub = derive_pub oracle_master, sha256 contract_script
+	console.log 'multisig keys', [ oracle_pub, alice_pub, bob_pub ].map (x) -> x.toString 'hex'
 
 	pubkeys_ba = [ oracle_pub, alice_pub, bob_pub ].map (x) -> Array.apply null, x
 	multisig_script = createMultiSigOutputScript(2, pubkeys_ba, true)
@@ -19,6 +20,7 @@ make_multisig = (contract_script, alice_pub, bob_pub) ->
 	{ oracle_pub, multisig_script, multisig_addr }
 
 derive_pub = (parent, chain_code) ->
+	console.log 'derive pub with chain', parent.toString('hex'), '->', chain_code.toString 'hex'
 	hd = new HDKey
 	hd.chainCode = chain_code
 	hd.publicKey = parent
