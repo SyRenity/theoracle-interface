@@ -26,6 +26,9 @@ app.get '/tx/:txid', (req, res, next) ->
 app.get '/followers', (req, res, next) ->
 	res.render 'followersform'
 
+app.get '/google', (req, res, next) ->
+	res.render 'google'
+
 app.get '/bitcoin_binary', (req, res, next) ->
 	expiration_date = new Date(Date.now()+30000).toString()
 
