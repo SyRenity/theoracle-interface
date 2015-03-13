@@ -24,8 +24,11 @@ using express(), ->
 	@get '/script/manage.js', browserify __dirname+'/script/manage.coffee', extension: [ '.coffee' ]
 
 	@get '/', (req, res, next) -> res.render 'mainform'
-	[ 'google', 'contract' ].forEach (page) =>
-		@get '/'+page, (req, res) -> res.render page
+	@get '/contract', (req, res, next) -> res.render 'contract'
+	@get '/google', (req, res, next) ->
+		res.render 'google',
+			script_tmpl: readFileSync 'contracts/google-search.coffee'
+			expiration_date: new Date(Date.now()+30000).toString()
 
 	@get '/bitcoin_binary', (req, res, next) ->
 		request.get 'https://api.bitcoinaverage.com/all', iferr next, (resp) ->

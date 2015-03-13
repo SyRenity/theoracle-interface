@@ -3,30 +3,32 @@ extends templateform
 block headline
 	h2 Create SEO Contract
 prepend script-def
-	.row		
-		.col-md-6
-			.form-group
-				label(for="keyword")  The search keyword
-				input.form-control.input-lg(placeholder="e.g buy laptop", name="keyword", required)
-		.col-md-6
-			.form-group
-				label(for="option_type") Needed ranking
-				input.form-control.input-lg(placeholder="1", name="rank")
 	.row
 		.col-md-6
 			.form-group
-				label(for="url")  Website url
-				input.form-control.input-lg(placeholder="e.g http://www.google.com/", name="url", required)
+				label(for="keyword") The search keyword
+				input.form-control.input-lg(placeholder="e.g. buy laptop", data-tmpl-name="keyword", required)
+		.col-md-6
+			.form-group
+				label(for="option_type") Promised ranking
+				.input-group
+					.input-group-addon Top
+					input.form-control.input-lg(placeholder="e.g. 10", data-tmpl-name="rank", data-tmpl-num)
+	.row
+		.col-md-6
+			.form-group
+				label(for="url") Website url
+				input.form-control.input-lg(placeholder="e.g. http://www.google.com/", data-tmpl-name="url", required)
 		.col-md-6
 			.form-group
 				label(for="expiration_date") Expiration date
-				input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
+				input.form-control.input-lg(data-tmpl-name="time", value=expiration_date, required, data-tmpl-time)
 	.row
 		.col-md-6
 			.form-group
-				label(for="company_address")  The SEO company bitcoin address
-				input.form-control.input-lg(placeholder="9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="company_address", required)
+				label(for="company_address") The SEO company bitcoin address
+				input.form-control.input-lg(placeholder="e.g. mxRN6AQJaDi5R6KmvMaEmZGe3n5ScV9u33", data-tmpl-name="company_address", required)
 		.col-md-6
 			.form-group
-				label(for="customer_address")  The customer bitcoin address
-				input.form-control.input-lg(placeholder="9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="customer_address", required)
+				label(for="customer_address") The customer bitcoin address
+				input.form-control.input-lg(placeholder="e.g. mrj2K6txjo2QBcSmuAzHj4nD1oXSEJE1Qo", data-tmpl-name="customer_address", required)
