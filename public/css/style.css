@@ -24,6 +24,6 @@ footer {
 .contract-spend > div {
   text-align: center;
 }
-.navbar-brand {
-  font-weight: bold;
+.navbar-brand img {
+  height: 100%;
 }
