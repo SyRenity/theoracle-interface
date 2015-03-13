@@ -1,8 +1,8 @@
 request = require 'superagent'
 request.get 'https://api.bitcoinaverage.com/all', (err, res) ->
 	
-	var d = new Date
-	if {time} < d.getTime
+	d = new Date
+	if {expiration_date} < d.getTime
 		return out null
 
 	val = res.body.USD.averages.last

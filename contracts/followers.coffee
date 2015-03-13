@@ -11,5 +11,8 @@ params = screen_name: {twitter_user}
 client.get 'users/show', params, iferr out, (user, res) ->
 	if user.followers_count > {needed_followers}
 		out null, payto {company_address}
-	else
+	else if 
+		d = new Date	
+		if {expiration_date} < d.getTime
+			return out null
 		out null, payto {customer_address}	
