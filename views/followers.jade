@@ -2,23 +2,32 @@ extends templateform
 
 block headline
 	h2 Create Followers Contract
-block script-def
-	.form-group
-		label(for="needee_followers") Needed followers
-		input.form-control(name="needed_followers", required)
+prepend script-def
+	.row
+		.col-md-6
+			.form-group
+				label(for="screen_name")  Twitter screen name
+				input.form-control.input-lg(placeholder="e.g John", name="screen-name", required)
+		
+		.col-md-6
+			.form-group
+				label(for="needed_followers") Needed followers
+				input.form-control.input-lg(placeholder="e.g 100", name="needed_followers", required)
 
-	.form-group
-		label(for="screen_name")  Twitter screen name
-		input.form-control(name="screen-name", required)
-
-	.form-group
-		label(for="company_address")  The social marketing company bitcoin address
-		input.form-control.input-lg(name="company_address", required)
+	.row
+		.col-md-6
+			.form-group
+				label(for="company_address")  The social marketing company bitcoin address
+				input.form-control.input-lg(placeholder="e.g: 9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="company_address", required)
 	
-	.form-group
-		label(for="customer_address")  The customer bitcoin address
-		input.form-control.input-lg(name="company_address", required)
+		.col-md-6
+			.form-group
+				label(for="customer_address")  The customer bitcoin address
+				input.form-control.input-lg(placeholder="e.g 9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="customer_address", required)
 
-	.form-group
-		label(for="expiration_date") Expiration date
-		input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
+append script-def
+	.row
+		.col-md-6
+			.form-group
+				label(for="expiration_date") Expiration date
+				input.form-control.input-lg(name="expiration_date", value=expiration_date, required)

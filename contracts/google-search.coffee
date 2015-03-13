@@ -9,8 +9,8 @@ exports = module.exports = ->
 		return out null
 	
 	google keyword, (err,next,links) ->
-		for l in links when l.link.indexOf {url}
-			return out null, payto {
+		for l in links when l.link.indexOf {url} not -1
+			return out null, payto {company_address}
 	out null, payto {customer_address}	
 				
 
