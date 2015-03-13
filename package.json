@@ -13,6 +13,8 @@
     "stylus": "~0.50.0",
     "jade": "~1.9.2",
     "twitter": "~1.2.3",
-    "express": "~4.12.2"
+    "express": "~4.12.2",
+    "bitcoinaverage-client": "0.0.5",
+    "superagent": "~1.0.0"
   }
 }

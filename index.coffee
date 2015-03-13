@@ -20,9 +20,9 @@ app.get '/tx/:txid', (req, res, next) ->
 
 app.get '/followers', (req, res, next) ->
 	res.render 'followersform'
-#	t = require	"./contracts/followers.coffee"
-#	t()
-#	console.log t
+
+app.get '/bitcoin_binary', (req, res, next) ->
+	res.render 'bitcoinbinaryform'
 
 server = app.listen 3000,->
 	console.log "Server started"

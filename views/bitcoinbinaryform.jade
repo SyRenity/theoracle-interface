@@ -1,13 +1,16 @@
 extends templateform
 
 block script-def
-	.form-group
-		label(for="needed-followers")  Needed followers
-		input.form-control(name="needed-followers", required)
 
 	.form-group
-		label(for="screen_name")  Twitter screen name
-		input.form-control(name="screen-name", required)
+		label(for="option_type") Option type
+		select.form-control(name="option_type")
+			option(value="put") PUT
+			option(value="call") CALL	
+
+	.form-group
+		label(for="current_value")  The current bitcoin value
+		input.form-control.input-lg(name="current_value", required)
 
 	.form-group
 		label(for="company_address")  The social marketing company bitcoin address
