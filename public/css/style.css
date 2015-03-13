@@ -9,6 +9,9 @@
   box-shadow: none;
   -webkit-box-shadow: none;
 }
+label {
+  font-size: 1.2em;
+}
 footer {
   margin: 2em 0;
 }

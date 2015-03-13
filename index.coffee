@@ -3,6 +3,7 @@ stylus = require 'stylus'
 iferr = require 'iferr'
 browserify = require 'browserify-middleware'
 request = require 'superagent'
+{ readFileSync } = require 'fs'
 
 ORACLE_URL = process.env.ORACLE_URL
 
@@ -35,6 +36,7 @@ using express(), ->
 	@get '/followers', (req, res, next) ->
 		res.render 'followers',
 				expiration_date: new Date(Date.now()+30000).toString()
+				script_tmpl: readFileSync 'contracts/followers.coffee'
 
 	@post '/contract', (req, res, next) ->
 		console.log 'req to oracle', req.body

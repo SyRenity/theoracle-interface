@@ -1,33 +1,34 @@
 extends templateform
 
 block headline
-	h2 Create Followers Contract
+	h2 Social Marketing Contract
+
 prepend script-def
 	.row
 		.col-md-6
 			.form-group
-				label(for="screen_name")  Twitter screen name
-				input.form-control.input-lg(placeholder="e.g John", name="screen-name", required)
+				label(for="screen_name") Twitter screen name
+				input.form-control.input-lg(placeholder="e.g. johndue", data-tmpl-name="twitter_user", required)
 		
 		.col-md-6
 			.form-group
-				label(for="needed_followers") Needed followers
-				input.form-control.input-lg(placeholder="e.g 100", name="needed_followers", required)
+				label(for="needed_followers") Promised Followers
+				input.form-control.input-lg(placeholder="e.g. 100", data-tmpl-name="needed_followers", data-tmpl-num, required)
 
 	.row
 		.col-md-6
 			.form-group
-				label(for="company_address")  The social marketing company bitcoin address
-				input.form-control.input-lg(placeholder="e.g: 9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="company_address", required)
+				label(for="company_address") Payment Address
+				input.form-control.input-lg(placeholder="e.g. mxRN6AQJaDi5R6KmvMaEmZGe3n5ScV9u33", data-tmpl-name="company_address", required)
 	
 		.col-md-6
 			.form-group
-				label(for="customer_address")  The customer bitcoin address
-				input.form-control.input-lg(placeholder="e.g 9431ad3bc9380bcfb962c3a21d5dc7b63a5a8a6f8b5842461d0089026aa5560b", name="customer_address", required)
+				label(for="customer_address") Refund Address
+				input.form-control.input-lg(placeholder="e.g. mrj2K6txjo2QBcSmuAzHj4nD1oXSEJE1Qo", data-tmpl-name="customer_address", required)
 
 append script-def
 	.row
 		.col-md-6
 			.form-group
 				label(for="expiration_date") Expiration date
-				input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
+				input.form-control.input-lg(data-tmpl-name="expiration_date", data-tmpl-time, value=expiration_date, required)
