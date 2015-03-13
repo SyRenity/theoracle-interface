@@ -38,5 +38,3 @@ app.get '/bitcoin_binary', (req, res, next) ->
 	
 server = app.listen 3000,->
 	console.log "Server started"
-
-

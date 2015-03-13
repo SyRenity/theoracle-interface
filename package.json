@@ -20,7 +20,10 @@
     "qruri": "0.0.3",
     "jadeify2": "git://github.com/shesek/node-jadeify2#e4f5dc6d9c94db512d17564e8bb5f55d458eb144",
     "envify": "^3.3.1",
-    "google": "~0.6.0"
+    "google": "~0.6.0",
+    "crypto-browserify": "^3.9.13",
+    "hdkey": "^0.4.0",
+    "coininfo": "^0.3.1"
   },
   "browserify": {
     "transform": [
