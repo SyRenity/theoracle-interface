@@ -27,3 +27,6 @@ footer {
 .navbar-brand img {
   height: 100%;
 }
+.text-muted {
+  color: #666;
+}
