@@ -14,6 +14,7 @@ app.use stylus.middleware
 app.use '/public', express.static __dirname + '/public'
 
 app.get '/script/new.js', browserify __dirname+'/script/new.coffee', extension: [ '.coffee' ]
+app.get '/script/manage.js', browserify __dirname+'/script/manage.coffee', extension: [ '.coffee' ]
 
 app.get '/', (req, res, next) ->
   res.render 'mainform'
