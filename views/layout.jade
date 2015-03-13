@@ -7,8 +7,9 @@ mixin script(path)
 doctype
 html
 	head
-		+css("public/lib/bootstrap/bootstrap.min.css")
-		+css("public/css/style.css")
+		block css
+			+css("public/lib/bootstrap/bootstrap.min.css")
+			+css("public/css/style.css")
 
 		block script
 			+script("https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
