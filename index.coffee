@@ -29,13 +29,13 @@ using express(), ->
 	@get '/google', (req, res, next) ->
 		res.render 'google',
 			script_tmpl: readFileSync 'contracts/google-search.coffee'
-			expiration_date: new Date(Date.now()+30000).toString()
+			expiration_date: new Date(Date.now()+3000000).toString()
 
 	@get '/bitcoin_binary', (req, res, next) ->
 		request.get 'https://api.bitcoinaverage.com/all', iferr next, (resp) ->
 			res.render 'bitcoinbinaryform',
 				current_value: resp.body.USD.averages.last
-				expiration_date: new Date(Date.now()+30000).toString()
+				expiration_date: new Date(Date.now()+3000000).toString()
 				script_tmpl: readFileSync 'contracts/bitcoinbinary.coffee'
 
 	@get '/followers', (req, res, next) ->

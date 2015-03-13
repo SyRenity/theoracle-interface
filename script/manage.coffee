@@ -40,7 +40,7 @@ run = ->
 					text: res.message
 					styling: 'bootstrap3'
 					type: 'info'
-					delay: 500000
+					delay: 5000
 			when 'tx'
 				show_tx balance, res.tx, multisig_script
 			else
@@ -65,7 +65,7 @@ ws.onmessage = (ev) ->
 			styling: 'bootstrap3'
 			type: 'success'
 			delay: 5000
-	if data.payload.sent
+	if false and data.payload.sent
 		amount = data.payload.sent / SATOSHI
 		new PNotify
 			title: 'Funds spent'

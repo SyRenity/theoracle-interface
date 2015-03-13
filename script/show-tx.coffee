@@ -3,6 +3,7 @@ coininfo = require 'coininfo'
 coinstring = require 'coinstring'
 sign_multisig = require './sign-multisig.coffee'
 tmpl = require '../views/tx.jade'
+success_tmpl = require '../views/success.jade'
 
 chain_api_key = process.env.CHAIN_API_KEY
 currency = process.env.CURRENCY
@@ -40,7 +41,9 @@ show_tx = (total_in, tx, multisig_script) ->
 			data: JSON.stringify signed_hex: rawtx
 		.done (res) ->
 			if res.transaction_hash
-				prompt 'Success! The txid is:', res.transaction_hash
+				$el.modal 'hide'
+				$ success_tmpl txid: res.transaction_hash
+					.modal()
 			else
 				alert 'Something bad happened :('
 

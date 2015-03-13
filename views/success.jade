@@ -1,0 +1,12 @@
+.modal.fade.tx-dialog: .modal-dialog: .modal-content
+	.modal-header
+		button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+		h4.modal-title Transaction finalized!
+	
+	.modal-body
+		p The transaction was finalized successfully and sent to the Bitcoin network.
+
+		p The transaction id is: #[a(href="https://www.blocktrail.com/tBTC/tx/#{txid}")= txid]
+
+	.modal-footer
+		button.btn.btn-default(type='button', data-dismiss='modal') Close
