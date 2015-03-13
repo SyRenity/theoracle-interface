@@ -35,6 +35,7 @@ using express(), ->
 			res.render 'bitcoinbinaryform',
 				current_value: resp.body.USD.averages.last
 				expiration_date: new Date(Date.now()+30000).toString()
+				script_tmpl: readFileSync 'contracts/bitcoinbinary.coffee'
 
 	@get '/followers', (req, res, next) ->
 		res.render 'followers',
