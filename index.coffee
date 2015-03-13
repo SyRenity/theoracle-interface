@@ -1,41 +1,49 @@
 express = require 'express'
 stylus = require 'stylus'
+iferr = require 'iferr'
 browserify = require 'browserify-middleware'
 request = require 'superagent'
 
-app = express()
+ORACLE_URL = process.env.ORACLE_URL
 
-app.set 'view engine', 'jade'
+using = (ctx, fn) -> fn.call ctx
 
-app.use stylus.middleware
-	src: __dirname + '/public'
-	dest: __dirname + '/public'
+using express(), ->
+	@set 'view engine', 'jade'
+	@set 'port', process.env.PORT or 3000
 
-app.use '/public', express.static __dirname + '/public'
+	@use require('body-parser').urlencoded extended: false
+	@use stylus.middleware
+		src: __dirname + '/public'
+		dest: __dirname + '/public'
 
-app.get '/script/new.js', browserify __dirname+'/script/new.coffee', extension: [ '.coffee' ]
-app.get '/script/manage.js', browserify __dirname+'/script/manage.coffee', extension: [ '.coffee' ]
+	@use '/public', express.static __dirname + '/public'
 
-app.get '/', (req, res, next) ->
-  res.render 'mainform'
+	@get '/script/new.js', browserify __dirname+'/script/new.coffee', extension: [ '.coffee' ]
+	@get '/script/manage.js', browserify __dirname+'/script/manage.coffee', extension: [ '.coffee' ]
 
-app.post '/', (req, res, next) ->
-		
-app.get '/contract', (req, res, next) ->
-	res.render 'contract'
-	
-app.get '/followers', (req, res, next) ->
-	res.render 'followersform'
+	@get '/', (req, res, next) -> res.render 'mainform'
+	[ 'google', 'contract' ].forEach (page) =>
+		@get '/'+page, (req, res) -> res.render page
 
-app.get '/google', (req, res, next) ->
-	res.render 'google'
+	@get '/bitcoin_binary', (req, res, next) ->
+		request.get 'https://api.bitcoinaverage.com/all', iferr next, (resp) ->
+			res.render 'bitcoinbinaryform',
+				current_value: resp.body.USD.averages.last
+				expiration_date: new Date(Date.now()+30000).toString()
 
-app.get '/bitcoin_binary', (req, res, next) ->
-	expiration_date = new Date(Date.now()+30000).toString()
+	@get '/followers', (req, res, next) ->
+		res.render 'followers',
+				expiration_date: new Date(Date.now()+30000).toString()
 
-	request.get 'https://api.bitcoinaverage.com/all', (err, resp) ->
-		res.render 'bitcoinbinaryform',
-		  {current_value: resp.body.USD.averages.last, expiration_date: expiration_date}
-	
-server = app.listen 3000,->
-	console.log "Server started"
+	@post '/contract', (req, res, next) ->
+		console.log 'req to oracle', req.body
+		request.post ORACLE_URL
+			.send req.body
+			.end iferr next, (resp) ->
+				console.log 'resp from oracle', resp.body
+				return next resp.body or resp.error if resp.error
+				res.send resp.body
+
+	@listen @settings.port, =>
+		console.log "Server started on port #{ @settings.port }"
