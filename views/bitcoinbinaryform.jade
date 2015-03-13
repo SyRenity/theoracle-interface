@@ -10,7 +10,7 @@ block script-def
 
 	.form-group
 		label(for="current_value")  The current bitcoin value
-		input.form-control.input-lg(name="current_value", required)
+		input.form-control.input-lg(name="current_value", value=current_value, required)
 
 	.form-group
 		label(for="company_address")  The social marketing company bitcoin address
@@ -19,4 +19,8 @@ block script-def
 	.form-group
 		label(for="customer_address")  The customer bitcoin address
 		input.form-control.input-lg(name="company_address", required)
+
+	.form-group
+		label(for="expiration_date") Expiration date
+		input.form-control.input-lg(name="expiration_date", value=expiration_date, required)
 
