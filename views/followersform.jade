@@ -1,9 +1,11 @@
 extends templateform
 
+block
+	h2 Create Followers Contract
 block script-def
 	.form-group
-		label(for="needed-followers")  Needed followers
-		input.form-control(name="needed-followers", required)
+		label(for="needee_followers") Needed followers
+		input.form-control(name="needed_followers", required)
 
 	.form-group
 		label(for="screen_name")  Twitter screen name

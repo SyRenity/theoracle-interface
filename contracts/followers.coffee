@@ -9,7 +9,7 @@ Twitter = require 'twitter'
 
 params = screen_name: {twitter_user}
 client.get 'users/show', params, iferr out, (user, res) ->
-	if user.followers_count > {desired_followers}
+	if user.followers_count > {needed_followers}
 		out null, payto {company_address}
 	else
 		out null, payto {customer_address}	
