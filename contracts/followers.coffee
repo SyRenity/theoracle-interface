@@ -14,5 +14,5 @@ client.get 'users/show', params, iferr out, (user, res) ->
 	else if 
 		d = new Date	
 		if {expiration_date} < d.getTime
-			return out null
-		out null, payto {customer_address}	
+			return out null, 'Not enough followers'
+		out null, payto {customer_address}
