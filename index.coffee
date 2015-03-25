@@ -12,6 +12,7 @@ using = (ctx, fn) -> fn.call ctx
 using express(), ->
 	@set 'view engine', 'jade'
 	@set 'port', process.env.PORT or 3000
+	@set 'host', process.env.HOST or '127.0.0.1'
 
 	@use require('body-parser').urlencoded extended: false
 	@use stylus.middleware
@@ -52,5 +53,5 @@ using express(), ->
 				return next resp.body or resp.error if resp.error
 				res.send resp.body
 
-	@listen @settings.port, =>
+	@listen @settings.port, @settings.host, =>
 		console.log "Server started on port #{ @settings.port }"
